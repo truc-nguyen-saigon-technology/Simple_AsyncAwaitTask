@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinF-Async-Await", "WinF-Async-Await\WinF-Async-Await.csproj", "{04CAB495-C0B6-48E8-AEBC-1140DEC1BC97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console-Async-Await", "Console-Async-Await\Console-Async-Await.csproj", "{19C2E14C-EB08-444A-90DC-2B8BB0B9162A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{04CAB495-C0B6-48E8-AEBC-1140DEC1BC97} = {04CAB495-C0B6-48E8-AEBC-1140DEC1BC97}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04CAB495-C0B6-48E8-AEBC-1140DEC1BC97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04CAB495-C0B6-48E8-AEBC-1140DEC1BC97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04CAB495-C0B6-48E8-AEBC-1140DEC1BC97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04CAB495-C0B6-48E8-AEBC-1140DEC1BC97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19C2E14C-EB08-444A-90DC-2B8BB0B9162A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19C2E14C-EB08-444A-90DC-2B8BB0B9162A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19C2E14C-EB08-444A-90DC-2B8BB0B9162A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19C2E14C-EB08-444A-90DC-2B8BB0B9162A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D1292FC-7414-4CFE-8EBA-021098E05B13}
+	EndGlobalSection
+EndGlobal
