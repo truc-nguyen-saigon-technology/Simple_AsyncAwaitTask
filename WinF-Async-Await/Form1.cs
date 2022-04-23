@@ -29,15 +29,18 @@ namespace WinF_Async_Await
             //await BlockUI.NonBlockUI2();
             //await BlockUI.NonBlockUI3();
 
-            // Create & Execute Tasks
-            IntroTask.TaskInstantiation();
-            await IntroTask.CommonWaysToCreateNewTask();
+            //// Create & Execute Tasks
+            //IntroTask.TaskInstantiation();
+            //await IntroTask.CommonWaysToCreateNewTask();
 
             // Popular Methods
             //await PopularMethods.ConfigureAwaitState(false);
-            cancellationTokenSource = new CancellationTokenSource();
-            cancellationTokenSource.CancelAfter(TimeSpan.FromSeconds(1));
-            await PopularMethods.TaskCompletedWhenCreate(cancellationTokenSource);
+            //cancellationTokenSource = new CancellationTokenSource();
+            //cancellationTokenSource.CancelAfter(TimeSpan.FromSeconds(1));
+            //await PopularMethods.TaskCompletedWhenCreate(cancellationTokenSource);
+
+            // Best Practices
+            await BestPractices.AsyncWithException();
 
         }
 
