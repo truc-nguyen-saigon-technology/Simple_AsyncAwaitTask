@@ -24,7 +24,29 @@ namespace WinF_Async_Await.Asynchronous
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
+        public static async Task SumTask(int a, int b)
+        {
+            await SumWithTaskBad(a, b);
+            await SumWithTaskGood(a, b);
+            await SumWithTaskBetter(a, b);
+        }
+
+        private static Task<int> SumWithTaskBad(int a, int b)
+        {
+            return Task.Run(() => a + b);
+        }
+
+        private static Task<int> SumWithTaskGood(int a,int b)
+        {
+            return Task.FromResult(a + b);
+        }
+
+        private static ValueTask<int> SumWithTaskBetter(int a, int b)
+        {
+            return new ValueTask<int>(a + b);
+        }
+
         private static async void ThrowAsyncVoid()
         {
             await Task.Delay(1000);

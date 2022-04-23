@@ -35,18 +35,39 @@ namespace WinF_Async_Await
 
             // Popular Methods
             //await PopularMethods.ConfigureAwaitState(false);
-            //cancellationTokenSource = new CancellationTokenSource();
-            //cancellationTokenSource.CancelAfter(TimeSpan.FromSeconds(1));
-            //await PopularMethods.TaskCompletedWhenCreate(cancellationTokenSource);
+
+            cancellationTokenSource = new CancellationTokenSource();
+            try
+            {
+                cancellationTokenSource.CancelAfter(500);
+                // About When and Wait
+                await PopularMethods.TaskCompletedWhenCreate(cancellationTokenSource);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cancellationTokenSource.Dispose();
+            }
+
 
             // Best Practices
-            await BestPractices.AsyncWithException();
+            //await BestPractices.AsyncWithException();
+
+            //using (var cts = new CancellationTokenSource(1000))
+            //{
+            //    await PopularMethods.TaskCompletedWhenCreate(cts);
+            //}
+
+            //await BestPractices.SumTask(1, 2);
 
         }
 
         private void btn_stop_Click(object sender, EventArgs e)
         {
-            cancellationTokenSource?.Cancel();
+            //cancellationTokenSource?.Cancel();
             btn_start.Enabled = true;
             btn_stop.Enabled = false;
             t.Enabled = false;
