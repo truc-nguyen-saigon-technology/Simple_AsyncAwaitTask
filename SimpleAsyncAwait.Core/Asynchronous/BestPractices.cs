@@ -26,16 +26,20 @@ namespace SimpleAsyncAwait.Core.Asynchronous
 
         public static async Task SumTask(int a, int b, int timesClick)
         {
+
             switch (timesClick)
             {
                 case 1:
-                    await SumWithTaskBad(a, b);
+                    for (int i = 0; i < 1000; i++)
+                        await SumWithTaskBad(a, b);
                     break;
                 case 2:
-                    await SumWithTaskGood(a, b);
+                    for (int i = 0; i < 1000; i++)
+                        await SumWithTaskGood(a, b);
                     break;
                 case 3:
-                    await SumWithTaskBetter(a, b);
+                    for (int i = 0; i < 1000; i++)
+                        await SumWithTaskBetter(a, b);
                     break;
                 default:
                     break;
@@ -48,15 +52,12 @@ namespace SimpleAsyncAwait.Core.Asynchronous
             {
                 int sum = 0;
 
-                for (int i = 0; i < 100000000; i++)
+                for (int i = 0; i < 1500000; i++)
                 {
-                    for (int j = 0; j < 10; j++)
-                    {
-                        sum += a * b * sum;
-                    }
+                    sum += a * b * sum;
                 }
 
-                Console.WriteLine("done 1 " + sum);
+                //Console.WriteLine("done 1 " + sum);
                 return sum;
             });
         }
@@ -65,14 +66,11 @@ namespace SimpleAsyncAwait.Core.Asynchronous
         {
             int sum = 0;
 
-            for (int i = 0; i < 100000000; i++)
+            for (int i = 0; i < 1500000; i++)
             {
-                for (int j = 0; j < 10; j++)
-                {
-                    sum += a * b * sum;
-                }
+                sum += a * b * sum;
             }
-            Console.WriteLine("done 2 " + sum);
+            //Console.WriteLine("done 2 " + sum);
 
             return Task.FromResult(sum);
         }
@@ -81,24 +79,21 @@ namespace SimpleAsyncAwait.Core.Asynchronous
         {
             int sum = 0;
 
-            for (int i = 0; i < 100000000; i++)
+            for (int i = 0; i < 1500000; i++)
             {
-                for (int j = 0; j < 10; j++)
-                {
-                    sum += a * b * sum;
-                }
+                sum += a * b * sum;
             }
-            Console.WriteLine("done 3 " + sum);
+            //Console.WriteLine("done 3 " + sum);
 
             return new ValueTask<int>(sum);
         }
-       
+
         private static async Task ThrowAsyncTask()
         {
             await Task.Delay(1000);
             throw new TimeoutException();
         }
-      
+
         private static async void ThrowAsyncVoid()
         {
             await Task.Delay(1000);
